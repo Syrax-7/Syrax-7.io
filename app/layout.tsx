@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Script from "next/script";
+import Script from "next/script";  // Add this import
 import "./globals.css";
 
 const geistSans = localFont({
@@ -27,17 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add additional metadata or external links if necessary */}
+        {/* Other head tags */}
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
-        {/* Use the Next.js Script component with the "beforeInteractive" strategy */}
+        {/* Use the Next.js Script component */}
         <Script
           src="https://telegram.org/js/telegram-web-app.js"
-          strategy="beforeInteractive"
+          strategy="beforeInteractive"  // Ensure the script loads before the page becomes interactive
         />
       </body>
     </html>
